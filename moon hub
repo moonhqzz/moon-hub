@@ -247,3 +247,5 @@ local Button = Tab:CreateButton({
    -- The function that takes place when the button is pressed
    end,
 })
+
+-- For any of you weird skids out there, leave this script alone. Thanks :)
