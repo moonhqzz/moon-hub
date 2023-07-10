@@ -1,0 +1,249 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))() -- RAYFIELD
+
+-- GUI
+local Window = Rayfield:CreateWindow({
+   Name = "🚀 Moon Hub",
+   LoadingTitle = "Moon Hub",
+   LoadingSubtitle = "by cdvxo09p",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "bsJAT7J8gn", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Moon Hub | Key System",
+      Subtitle = "https://discord.gg/bsJAT7J8gn",
+      Note = "Join the discord for the key!",
+      FileName = "MoonHubKey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/Jbch0i6M"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+
+-- TABS
+local MainTab = Window:CreateTab("🌌 Main", nil)
+local PlayerTab = Window:CreateTab("☄ Player", nil)
+local CreditsTab = Window:CreateTab("🛠 Credits", nil)
+local ExtraTab = Window:CreateTab("📦 Extra", nil)
+
+-- SECTIONS
+local Section = MainTab:CreateSection("Main Scripts")
+local Section = PlayerTab:CreateSection("Player")
+local Section = CreditsTab:CreateSection("Credits")
+local Section = ExtraTab:CreateSection("Extra")
+
+-- NOTIFICATIONS
+Rayfield:Notify({
+   Title = "Notification",
+   Content = "Script loaded successfully",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay",
+         Callback = function()
+         print("The user tapped Okay")
+      end
+   },
+},
+})
+
+Rayfield:Notify({
+   Title = "Notification",
+   Content = "Thanks for using Moon Hub",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "GG",
+         Callback = function()
+         print("The user tapped GG")
+      end
+   },
+},
+})
+
+-- PLAYER
+local Slider = PlayerTab:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "WalkSpeed",
+   CurrentValue = 0,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
+local Slider = PlayerTab:CreateSlider({
+   Name = "JumpPower",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "JumpPower",
+   CurrentValue = 0,
+   Flag = "Slider2", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Default WalkSpeed",
+   Callback = function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (16)
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Default JumpPower",
+   Callback = function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = (50)
+   end,
+})
+
+-- CREDITS
+local Button = CreditsTab:CreateButton({
+   Name = "cdvxo09p",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+-- EXTRA
+local Button = ExtraTab:CreateButton({
+   Name = "Infinite Yield",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+})
+
+local Button = ExtraTab:CreateButton({
+   Name = "Infinite Jump",
+   Callback = function()
+local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+   end,
+})
+
+local Button = ExtraTab:CreateButton({
+   Name = "Destroy UI",
+   Callback = function()
+Rayfield:Destroy()
+   end,
+})
+
+
+-- MAIN
+
+local Button = MainTab:CreateButton({
+   Name = "PLS DONATE 💸",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/tzechco-PlsDonateAutofarmBackup/main/autofarm"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "DOORS 👁",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Loader.lua"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Piggy",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Loader.lua"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Chat Bypasser",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SXNTII/VadriftsHost/main/source.lua"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Funky Friday",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/master/funkyfriday"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Work at a Pizza Place",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/moonhqzz/work-at-a-pizza-place/main/work%20at%20a%20pizza%20place"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Build A Boat For Treasure",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Loader.lua"))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Arm Wrestle Simulator",
+   Callback = function()
+loadstring(game:HttpGet('https://pastebin.com/raw/Suk08TTt'))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Pet Simulator X",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NukeVsCity/TheALLHACKLoader/main/NukeLoader", true))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Jailbreak",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NukeVsCity/TheALLHACKLoader/main/NukeLoader", true))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Blox Fruits",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NukeVsCity/TheALLHACKLoader/main/NukeLoader", true))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Your Bizarre Adventure",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NukeVsCity/TheALLHACKLoader/main/NukeLoader", true))()
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Monkey Tycoon",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/9ur98wh8fjkerbngo12ikontgg/fortnite/main/MONKEY%20TYCOON%20ufur9eih%20u8u%20irgheg%20ruihgruei%20hgurihrguiehrguihiujbgujihggerhiouergui", true))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "More scripts being added soon",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
